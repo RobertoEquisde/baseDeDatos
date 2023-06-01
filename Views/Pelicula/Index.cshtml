@@ -1,33 +1,59 @@
-@model System.Data.DataTable;
-@{ViewData["Title"] = "Lista de Peliculas";}
-<div class="jumbotion">
+@model System.Data.DataTable
+@{
+    ViewData["Title"] = "Lista de Películas";
+}
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" />
+
+<div class="jumbotron">
     <h1 class="text-center">@ViewData["Title"]</h1>
 </div>
-<table class="table table-bordered">
+
+<table id="myTable" class="display">
     <thead class="thead-light">
         <tr>
             <th>Nombre</th>
-            <th>Genero</th>
-            <th>Anio</th>
-            <th>Clasificacion</th>
-            <th>Distribuidora</th>
-            <th><a asp-action="Detalle">Crear Nueva</a></th>
+            <th>Apellido</th>
+            <th>Edad</th>
+            <th>Género</th>
+            <th>Tipo de Sangre</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Correo Electrónico</th>
+            <th>Última Donación</th>
+            <th>Restricciones</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
-        @for (int i = 0; i < Model.Rows.Count; i++)
+        @foreach (System.Data.DataRow row in Model.Rows)
         {
-         <tr>
-            <td>@Model.Rows[i]["nombre"]</td>
-            <td>@Model.Rows[i]["genero"]</td>
-            <td>@Model.Rows[i]["anio"]</td>
-            <td>@Model.Rows[i]["clasificacion"]</td>
-            <td>@Model.Rows[i]["distribuidora"]</td>
-            <td>
-                <a asp-action="Detalle" asp-asp-route-id="@Model.Rows[i]["id"]">Editar</a>
-                <a asp-action="Eliminar" asp-asp-route-id="@Model.Rows[i]["id"]">Eliminar</a>
-            </td>
-         </tr>   
+            <tr>
+                <td>@row["nombre"]</td>
+                <td>@row["apellido"]</td>
+                <td>@row["edad"]</td>
+                <td>@row["genero"]</td>
+                <td>@row["tipoSangre"]</td>
+                <td>@row["direccion"]</td>
+                <td>@row["telefono"]</td>
+                <td>@row["correoElectronico"]</td>
+                <td>@row["ultimaDonacion"]</td>
+                <td>@row["restricciones"]</td>
+                <td>
+                    <a asp-action="Detalle" asp-route-id="@row["id"]">Editar</a>
+                    <a asp-action="Eliminar" asp-route-id="@row["id"]">Eliminar</a>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
+}

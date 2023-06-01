@@ -2,13 +2,18 @@ using System.ComponentModel.DataAnnotations;
 namespace WEB7.Controllers;
 
 public class PeliculasViewModel{
-    [Key] 
-    public int Id{get; set;}
-    [Required]
-    public string? Nombre{get; set;}
-    public string? Genero{get; set;}
-    [Range(2024,int.MaxValue,ErrorMessage ="Fuera de rango")]
-    public int Anio{get; set;}
-    public char Clasificacion {get; set;}
-    public string? Distribuidora {get; set;}
+        [Key]
+        public int ID{get;set;}
+        [Required]
+        public String? nombre{get;set;}
+        public String? apellido{get;set;}
+        public int edad{get;set;}
+        public String? genero{get;set;}
+        public String? tipoSangre{get;set;}
+        public String? direccion{get;set;}
+        public String? telefono{get;set;}
+        public String? correoElectronico {get;set;}
+        
+        public DateTime ultimaDonacion{get;set;}
+        public String? restricciones {get;set;}
 }
