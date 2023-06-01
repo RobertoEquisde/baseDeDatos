@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 01-06-2023 a las 16:45:36
+-- Tiempo de generación: 01-06-2023 a las 16:46:28
 -- Versión del servidor: 5.6.13
 -- Versión de PHP: 5.4.17
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `donacion`
 --
+CREATE DATABASE IF NOT EXISTS `donacion` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `donacion`;
 
 -- --------------------------------------------------------
 
